@@ -12,6 +12,8 @@ class DynamicArray
 public:
 
 	DynamicArray(const int initial_capacity, const int capacity_increment);
+	DynamicArray(const int initial_capacity);
+	DynamicArray();
 	DynamicArray(const DynamicArray& other);
 	DynamicArray& operator = (const DynamicArray& other);
 	~DynamicArray();
@@ -203,6 +205,8 @@ int main(int argc, char** argv)
 }
 
 DynamicArray::DynamicArray(const int initial_capacity, const int capacity_increment) {}
+DynamicArray::DynamicArray(const int initial_capacity) {}
+DynamicArray::DynamicArray() {}
 DynamicArray::DynamicArray(const DynamicArray& other) {}
 DynamicArray& DynamicArray::operator = (const DynamicArray& other) {}
 DynamicArray::~DynamicArray() {}
@@ -214,4 +218,5 @@ bool DynamicArray::append(const int value) {}
 int& DynamicArray::operator [] (int index) {}	//Bonus
 int DynamicArray::get(const int index) {}
 bool DynamicArray::set(const int index, const int value) {}
+
 void DynamicArray::print() {}
