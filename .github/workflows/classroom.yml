@@ -1,0 +1,203 @@
+name: Autograding Tests
+on:
+  - push
+  - workflow_dispatch
+  - repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: DA 000
+      id: da-000
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 000
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 000"
+        input: ''
+        expected-output: '0'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 001
+      id: da-001
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 001
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 001"
+        input: ''
+        expected-output: '0 1 2 3 4'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 002
+      id: da-002
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 002
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 002"
+        input: ''
+        expected-output: '0 1 2 3 4'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 003
+      id: da-003
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 003
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 003"
+        input: ''
+        expected-output: '0 1 2 3 4'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 004
+      id: da-004
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 004
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 004"
+        input: ''
+        expected-output: '0 1 2 3'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 005
+      id: da-005
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 005
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 005"
+        input: ''
+        expected-output: '0 1 3 4'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 006
+      id: da-006
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 006
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 006"
+        input: ''
+        expected-output: '0 1 5 3 4'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 007
+      id: da-007
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 007
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 007"
+        input: ''
+        expected-output: '2'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 008
+      id: da-008
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 008
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 008"
+        input: ''
+        expected-output: '0 1 2 3 4'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 009
+      id: da-009
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 009
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 009"
+        input: ''
+        expected-output: '4 3 2 1 0'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 010
+      id: da-010
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 010
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 010"
+        input: ''
+        expected-output: '7 6 5 4 3 2 1 0'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 011
+      id: da-011
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 011
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 011"
+        input: ''
+        expected-output: '7 6 5 4 3 2 1 0'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 012
+      id: da-012
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 012
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 012"
+        input: ''
+        expected-output: '7 6 5 4 3 2 1 0'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: DA 013
+      id: da-013
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: DA 013
+        setup-command: g++ da.cpp -o a.out
+        command: "./a.out 013"
+        input: ''
+        expected-output: '0 0 0 0 0 0 0 0'
+        comparison-method: exact
+        timeout: 1
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        DA-000_RESULTS: "${{steps.da-000.outputs.result}}"
+        DA-001_RESULTS: "${{steps.da-001.outputs.result}}"
+        DA-002_RESULTS: "${{steps.da-002.outputs.result}}"
+        DA-003_RESULTS: "${{steps.da-003.outputs.result}}"
+        DA-004_RESULTS: "${{steps.da-004.outputs.result}}"
+        DA-005_RESULTS: "${{steps.da-005.outputs.result}}"
+        DA-006_RESULTS: "${{steps.da-006.outputs.result}}"
+        DA-007_RESULTS: "${{steps.da-007.outputs.result}}"
+        DA-008_RESULTS: "${{steps.da-008.outputs.result}}"
+        DA-009_RESULTS: "${{steps.da-009.outputs.result}}"
+        DA-010_RESULTS: "${{steps.da-010.outputs.result}}"
+        DA-011_RESULTS: "${{steps.da-011.outputs.result}}"
+        DA-012_RESULTS: "${{steps.da-012.outputs.result}}"
+        DA-013_RESULTS: "${{steps.da-013.outputs.result}}"
+      with:
+        runners: da-000, da-001, da-002, da-003, da-004, da-005, da-006, da-007, da-008, da-009, da-010, da-011, da-012, da-013
