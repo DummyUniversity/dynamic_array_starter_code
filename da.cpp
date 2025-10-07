@@ -77,8 +77,9 @@ int main(int argc, char** argv)
 			a.insert(1, 1);
 			a.insert(2, 2);
 			a.insert(3, 3);
-			a.append(4);
-			a.print();	//Should print 0 1 2 3 4
+			a.insert(4, 4);
+			a.remove();
+			a.print();	//Should print 0 1 2 3
 		}
 
 		if (test == "005")
@@ -88,33 +89,11 @@ int main(int argc, char** argv)
 			a.insert(2, 2);
 			a.insert(3, 3);
 			a.insert(4, 4);
-			a.remove();
-			a.print();	//Should print 0 1 2 3
+			a.remove(2);
+			a.print();	//Should print 0 1 3 4
 		}
 
 		if (test == "006")
-		{
-			a.insert(0, 0);
-			a.insert(1, 1);
-			a.insert(2, 2);
-			a.insert(3, 3);
-			a.insert(4, 4);
-			a.remove(2);
-			a.print();	//Should print 0 1 3 4
-		}
-
-		if (test == "007")
-		{
-			a.insert(0, 0);
-			a.insert(1, 1);
-			a.insert(2, 2);
-			a.insert(3, 3);
-			a.insert(4, 4);
-			a.remove(2);
-			a.print();	//Should print 0 1 3 4
-		}
-
-		if (test == "008")
 		{
 			a.insert(0, 0);
 			a.insert(1, 1);
@@ -125,7 +104,7 @@ int main(int argc, char** argv)
 			a.print();	//Should print 0 1 5 3 4
 		}
 
-		if (test == "009")
+		if (test == "007")
 		{
 			a.insert(0, 0);
 			a.insert(1, 1);
@@ -135,7 +114,7 @@ int main(int argc, char** argv)
 			cout << a.get(2) << "\n"; //Should print 2
 		}
 
-		if (test == "010")
+		if (test == "008")
 		{
 			a.insert(0, 0);
 			a.insert(1, 1);
@@ -145,7 +124,7 @@ int main(int argc, char** argv)
 			a.print();	//Should print 0 1 2 3 4
 		}
 
-		if (test == "011")
+		if (test == "009")
 		{
 			for (int i = 0; i < 5; i++)
 			{
@@ -154,7 +133,7 @@ int main(int argc, char** argv)
 			a.print();	//Should print 4 3 2 1 0
 		}
 
-		if (test == "012")
+		if (test == "010")
 		{
 			for (int i = 0; i < 8; i++)
 			{
@@ -163,7 +142,7 @@ int main(int argc, char** argv)
 			a.print();	//Should print 7 6 5 4 3 2 1 0
 		}
 
-		if (test == "013")
+		if (test == "011")
 		{
 			for (int i = 0; i < 8; i++)
 			{
@@ -174,7 +153,7 @@ int main(int argc, char** argv)
 			b.print();	//Should print 7 6 5 4 3 2 1 0
 		}
 
-		if (test == "014")
+		if (test == "012")
 		{
 			for (int i = 0; i < 8; i++)
 			{
@@ -186,7 +165,7 @@ int main(int argc, char** argv)
 			b.print();	//Should print 7 6 5 4 3 2 1 0
 		}
 
-		if (test == "015")
+		if (test == "013")
 		{
 			for (int i = 0; i < 8; i++)
 			{
@@ -194,12 +173,10 @@ int main(int argc, char** argv)
 				cout << a[i] << " ";	//Should print 0 0 0 0 0 0 0 0
 			}
 			cout << "\n";
-			
 		}
-
+		
+		return 0;
 	}
-
-
 
 	return 0;
 }
